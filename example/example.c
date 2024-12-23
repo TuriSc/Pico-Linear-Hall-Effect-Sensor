@@ -1,8 +1,9 @@
 /*
- * Pico Linear Hall Effect Sensor
- * Linear Hall Effect (LHE) sensor library for Raspberry Pi Pico,
+ * @file example.c
+ * @brief Linear Hall Effect (LHE) sensor library for Raspberry Pi Pico,
  * with calibration and smoothing.
- * By Turi Scandurra – https://turiscandurra.com/circuits
+ *
+ * @author Turi Scandurra – https://turiscandurra.com/circuits
 */
 
 #include <stdio.h>
@@ -17,7 +18,7 @@ int main() {
     stdio_init_all();
 
     // Initialize the ADC before continuing
-    adc_init(); 
+    adc_init();
 
     // Create a new sensor instance
     lhe_sensor_t sensor = lhe_init(ADC_PIN);
@@ -52,6 +53,10 @@ int main() {
         printf("raw: %d\tcorr: %d\tmV: %d\tG: %d\n",\
                 raw_value, calibrated_value, voltage, strength);
 
+        // Delay for 1 second
         sleep_ms(1000);
     }
+
+    return 0;
 }
+
